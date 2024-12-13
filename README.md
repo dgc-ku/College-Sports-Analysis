@@ -28,6 +28,3 @@ After data cleaning, I calculated a 'score' for each university based on their u
 
 
 
-
-
-There are obviously issues with this method, as Boston College was a major outlier since the schools consistently made over $35 million every year, but it was the best I 
