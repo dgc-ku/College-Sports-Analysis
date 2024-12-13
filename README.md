@@ -20,6 +20,8 @@ inaccuracies, while NA values in revenue data, due to sports cancellations durin
 ## Findings
 ### Correlation
 After data cleaning, I calculated a 'score' for each university based on their undergraduate enrollment and graduation rate. This score was calculated based on normalization on all schools. After aggregating revenue of each school and comparing it to the total 'score' of each university, I found that there is a weak correlation between revenue and graduation rate (r = 0.37), but a **moderate correlation** between revenue and undergraduate enrollment (r = 0.59). Below is a correlation matrix between revenue and the two university demographics measured:
+
+
 ![Correlation Matrix](/assets/images/correlation_matrix.png)
 
 ### Logistic Regression Machine Learning Model
