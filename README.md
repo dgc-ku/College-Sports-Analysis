@@ -25,10 +25,14 @@ After data cleaning, I calculated a 'score' for each university based on their u
 ![Correlation Matrix](/assets/images/correlation_matrix.png)
 
 ### Logistic Regression Machine Learning Model
-I built a machine learning model using logistic regression that predicted whether or not a school was 'successful' based on the given revenue. Schools that were considered 'successful' were any schools that were above the mean of the total score mentioned earlier. These were the measurement statistics for the model:
+I built a machine learning model using logistic regression that predicted whether or not a school was 'successful' based on the given revenue. Schools that were considered 'successful' were any schools that were above the mean of the total score mentioned earlier. These were the measurement statistics for the model using 5-fold cross validation:
 - Accuracy: 65%
 - Recall: 35%
 - Precision: 50%
+
+![Logistic Regression Correlation Matrix](/assets/images/correlation_matrix.png)
+
+From the correlation matrix above, we see that the model performs somewhat well, despite having 13 false positives and 5 false negatives.
 
 
 
