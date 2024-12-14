@@ -15,7 +15,9 @@ As with any data science project, no dataset is perfectly clean and must be prop
 consolidated into a single dataset to ensure consistency across variables.
 - Handling NA Values: Missing values were addressed based on their context. NA values in the graduation rate and enrollment data were removed to prevent
 inaccuracies, while NA values in revenue data, due to sports cancellations during COVID-19) were replaced with zeros.
-- Normalization: Variables with different scales (e.g., revenue in millions, enrollment as raw counts, and graduation rates as percentages) were normalized to enable meaningful comparisons
+- Normalization: Variables with different scales (e.g., revenue in millions, enrollment as raw counts, and graduation rates as percentages) were normalized to enable meaningful comparisons. This is also used to calculate the respective school's 'score' in undergraduate enrollment and graduation rate.
+
+As a result, we will be working with 52 schools total from the state of Massachusetts.
 
 ## Findings
 ### Correlation
@@ -32,7 +34,21 @@ I built a machine learning model using logistic regression that predicted whethe
 
 ![Logistic Regression Correlation Matrix](/assets/images/logistic_reg_confusion_matrix.png)
 
-From the correlation matrix above, we see that the model performs somewhat well, despite having 13 false positives and 5 false negatives.
+From the confusion matrix above, we see that the model accurately represents our accuracy score of 65% (34 / 52 ≈ 0.65), while having 13 false positives and 5 false negatives. 
 
+## Conclusion and Future Work
+Based on the analysis, it's clear that there is some association between college sports revenue and aspects of university demographics. With the data that was available, I found that there is a **moderate correlation** between college sports revenue and university undergraduate enrollment, suggesting profitable sports programs will attract more students to come pursue their studies at the university. 
+
+Even though a 65% accuracy score is reasonable given 52 schools from Massachusetts, the logistic regression model described earlier has some obvious flaws:
+
+1. The method for calculating whether a school is 'successful' is a good start (anything above the mean score), but could use some more work in refining the guidelines for a 'successful' school. It's pretty obvious that this metric is subjective, as every individual's specifications for a 'successful' school can differ greatly. As a result, future work for this model should incorporate different college ranking lists, including US News, Forbes, Princeton Review, etc.
+
+2. In addition to college rankings being subjective, this model's only considerations for a 'successful' school is only undergraduate enrollment and graduation rate. Although this is a step in the right direction, there are so many other factors that make up a university, including acceptance rates, yield rates, retention rate, and tuition.
+
+3. Normalizing the undergraduate enrollment and graduation rates to calculate every school's 'score' was a good concept in theory, but didn't seem to work in execution. This was due to Boston College being a huge outlier, consistently creating over $35 million in revenue every year and leading the state in revenue every year. In the future, one may have to put the revenue in millions (which already has been done) and simply aggregate them over the years, as it may improve the model statistic measurements. 
+
+4. There are not enough schools when following the guidelines of training and testing data, as standard convention has 80% of data being training and the rest of the 20% as testing. Given 52 schools (rows) to work with, the model was only able to train on 10 rows, which may be a significant reason why the recall and precision scores are quite low. Being able to train this model on all schools that have sports programs would be a great way to improve the statistical measurements of this logistic regression model.
+
+It goes without saying that this analysis is a good start in researching whether or not college sports have an effect on the university as a whole, but working on the four points mentioned above can greatly improve our results in investigating this question.
 
 
