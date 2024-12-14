@@ -30,7 +30,7 @@ I built a machine learning model using logistic regression that predicted whethe
 - Recall: 35%
 - Precision: 50%
 
-![Logistic Regression Correlation Matrix](/assets/images/correlation_matrix.png)
+![Logistic Regression Correlation Matrix](/assets/images/logistic_reg_correlation_matrix.png)
 
 From the correlation matrix above, we see that the model performs somewhat well, despite having 13 false positives and 5 false negatives.
 
